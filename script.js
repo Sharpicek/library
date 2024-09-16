@@ -7,6 +7,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+};
+
 
 function addBookToLibrary (title, author, pages, read) {
      myLibrary.push(new Book(title, author, pages, read));
@@ -26,10 +30,16 @@ function showLibrary() {
 
         for (let key in myLibrary[i]) {
 
+            // Doesn't create column for prototype.changeRead function
+            if (key === "toggleRead") {
+                break;
+            }
+
             let value = myLibrary[i][key];
 
+            // Read is boolean value, so I change it to Yes for true and to No for fals
             if (key === 'read') {
-                value = value ? "Yes" : "Ne";
+                value = value ? "Yes" : "No";
             }
 
             const newCell = newRow.insertCell(cellCount);
@@ -37,14 +47,19 @@ function showLibrary() {
             newCell.appendChild(newText);
             ++cellCount;
 
+            // Creates button for toggleRead value change
             if (key === 'read') {
                 const changeButton = document.createElement("button");
                 changeButton.classList.add("change-btn");
                 changeButton.setAttribute("id", `btn-cell${i}`);
                 changeButton.textContent = "Change";
+
                 changeButton.addEventListener("click", () => {
-                    changeRead(i);
+                    myLibrary[i].toggleRead();
+                    // Updates the value in DOM after changing it
+                    newCell.firstChild.nodeValue = myLibrary[i].read ? "Yes" : "No";
                 });
+                
                 newCell.setAttribute("id", `cell${i}`);
                 newCell.appendChild(changeButton);
             }                  
@@ -58,9 +73,5 @@ function showLibrary() {
         lastCell.appendChild(deleteButton);
     }
 }
-
-function changeRead(row) {
-    console.log(row);
-};
 
 showLibrary();
