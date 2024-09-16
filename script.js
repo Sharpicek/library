@@ -59,7 +59,7 @@ function showLibrary() {
                     // Updates the value in DOM after changing it
                     newCell.firstChild.nodeValue = myLibrary[i].read ? "Yes" : "No";
                 });
-                
+
                 newCell.setAttribute("id", `cell${i}`);
                 newCell.appendChild(changeButton);
             }                  
@@ -70,8 +70,18 @@ function showLibrary() {
         deleteButton.classList.add("delete-btn");
         deleteButton.setAttribute("id", `btn-row${i}`);
         deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", () => {
+            myLibrary.splice(i, 1);
+            removeBook(i);
+        })
         lastCell.appendChild(deleteButton);
     }
+}
+
+function removeBook(row) {
+    const deleteRow = document.getElementById(`row${row}`);
+    deleteRow.remove();
 }
 
 showLibrary();
