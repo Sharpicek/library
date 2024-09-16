@@ -16,8 +16,8 @@ function addBookToLibrary (title, author, pages, read) {
      myLibrary.push(new Book(title, author, pages, read));
 };
 
-addBookToLibrary('Duna', 'Frank Herbert', '638', true);
-addBookToLibrary('Harry Potter a Kámen Mudrců', 'J. K. Rowling', '246', true);
+addBookToLibrary("Dune", "Frank Herbert", "638", true);
+addBookToLibrary("Harry Potter and the Half-Blood Prince", "J. K. Rowling", "668", false);
 
 function showLibrary() {
     const table = document.getElementById("library");

@@ -56,6 +56,7 @@ header {
     background-color: #334155;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
