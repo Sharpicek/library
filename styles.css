@@ -68,7 +68,7 @@ h1 {
 .add-book-btn {
     align-self: center;
     margin: 20px 40px;
-    padding: 0.5rem;
+    padding: 0.8rem;
     border-radius: 10px;
     background-color: #a855f7;
     transition-duration: 0.2s;
@@ -79,9 +79,6 @@ h1 {
     background-color: #c084fc;
 }
 
-.add-book-btn:active {
-    transform: translateY(2px);
-}
 /* ----- Table ----- */
 
 .library, th, td {
@@ -112,3 +109,43 @@ tr td:nth-child(3) {
     text-align: right;
 }
 
+tr td:nth-child(4) {
+    text-align: center;
+}
+
+th:nth-child(5) {
+    display: flex;
+    border: none;
+    justify-content: center;
+}
+
+/* --- Buttons --- */
+
+.change-btn, .delete-btn {
+    padding: 8px;
+    margin-left: 20px;
+    font-size: 80%;
+    border-radius: 8px;
+    background-color: #0ea5e9;
+    transition-duration: 0.2s;
+}
+
+.change-btn:hover {
+    background-color: #7dd3fc;
+}
+
+.add-book-btn:active, .change-btn:active, .delete-btn:active {
+    transform: translateY(2px);
+}
+
+.delete-btn {
+    background-color: #e11d48;
+}
+
+.delete-btn:hover {
+    background-color: #fb7185;
+}
+
+.trash {
+    width: 1.8rem;
+}

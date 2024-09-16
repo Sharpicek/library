@@ -39,15 +39,28 @@ function showLibrary() {
 
             if (key === 'read') {
                 const changeButton = document.createElement("button");
-                changeButton.classList.add("delete-btn");
+                changeButton.classList.add("change-btn");
                 changeButton.setAttribute("id", `btn-cell${i}`);
                 changeButton.textContent = "Change";
+                changeButton.addEventListener("click", () => {
+                    changeRead(i);
+                });
                 newCell.setAttribute("id", `cell${i}`);
                 newCell.appendChild(changeButton);
-            }
-
+            }                  
         }
+
+        const lastCell = newRow.insertCell(cellCount);
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
+        deleteButton.setAttribute("id", `btn-row${i}`);
+        deleteButton.textContent = "Delete";
+        lastCell.appendChild(deleteButton);
     }
 }
+
+function changeRead(row) {
+    console.log(row);
+};
 
 showLibrary();
