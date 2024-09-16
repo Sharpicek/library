@@ -21,14 +21,30 @@ function showLibrary() {
     for (let i = 0; i < myLibrary.length; i++) {
 
         const newRow = table.insertRow(i + 1);
+        newRow.setAttribute("id",`row${i}`);
         let cellCount = 0;
 
         for (let key in myLibrary[i]) {
 
+            let value = myLibrary[i][key];
+
+            if (key === 'read') {
+                value = value ? "Yes" : "Ne";
+            }
+
             const newCell = newRow.insertCell(cellCount);
-            const newText = document.createTextNode(myLibrary[i][key]);
+            const newText = document.createTextNode(value);
             newCell.appendChild(newText);
             ++cellCount;
+
+            if (key === 'read') {
+                const changeButton = document.createElement("button");
+                changeButton.classList.add("delete-btn");
+                changeButton.setAttribute("id", `btn-cell${i}`);
+                changeButton.textContent = "Change";
+                newCell.setAttribute("id", `cell${i}`);
+                newCell.appendChild(changeButton);
+            }
 
         }
     }
