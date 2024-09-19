@@ -21,10 +21,19 @@ function addBookToLibrary () {
     const author = authorInput.value;
     const pages = pagesInput.value;
     const read = readCheckbox.value;
+    if (title === "") {
+        alert("Please fill out the title!");
+        return false;
+    } else if (author === "") {
+        alert("Please fill out the author!");
+    } else if (pages === "") {
+        alert("Please fill out the pages!");
+    } else {
     myLibrary.push(new Book(title, author, pages, read));
     dialog.close();
     showLibrary();
     clearInputFields();
+    }
 };
 
 function clearInputFields () {
