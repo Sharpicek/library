@@ -10,7 +10,7 @@
 <body>
     <header>
         <h1>MY LIBRARY</h1>
-        <button class="add-book-btn">New Book</button>
+        <button class="add-book-btn" id="add-book-btn">New Book</button>
     </header>
     <table class="library" id="library">
         <tr>
@@ -21,5 +21,17 @@
             <th><img src="./trash-can-outline.svg" class="trash"></th>
         </tr>
     </table>
+    <dialog id="open-dialog" class="add-book-dialog">
+        <form class="modal-form" method="get" id="add-book">
+            <label for="title">Title<input type="text" id="title" required></label>
+            <label for="author">Author<input type="text" id="author" required></label>
+            <label for="pages">Pages<input type="number" id="pages" required></label>
+            <label for="check-read">Have you read it?<input type="checkbox" id="check-read"></label>
+        </form>
+        <div class="button-container">
+            <button id="close-dialog" class="dialog-btn">Close</button>
+            <button id="add-book-to-library" class="dialog-btn" form="add-book" type="submit">Add Book</button>
+        </div>
+    </dialog>
 </body>
 </html>

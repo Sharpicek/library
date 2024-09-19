@@ -83,9 +83,13 @@ h1 {
 /* ----- Table ----- */
 
 .library, th, td {
-    border: 2px solid #64748b;
     background-color: #334155;
     color: #e2e8f0;
+    transition-duration: 0.2s;
+}
+
+th, td {
+    border-left: 2px solid #64748b;
 }
 
 .library {
@@ -102,9 +106,18 @@ th, td {
     padding: 15px;
 }
 
-tr:hover td {
+tr:nth-child(even) td {
     background-color: #475569;
 }
+
+tr:hover td {
+    background-color: #64748b;
+}
+
+th:nth-child(1), tr td:nth-child(1) {
+    border: none;
+}
+
 
 tr td:nth-child(3) {
     text-align: right;
@@ -114,28 +127,30 @@ tr td:nth-child(4) {
     text-align: center;
 }
 
-th:nth-child(5) {
+th:nth-child(5), tr td:nth-child(5) {
     display: flex;
-    border: none;
     justify-content: center;
 }
 
 /* --- Buttons --- */
 
-.change-btn, .delete-btn {
+.change-btn, .delete-btn, .dialog-btn {
     padding: 8px;
-    margin-left: 20px;
     font-size: 80%;
     border-radius: 8px;
     background-color: #0ea5e9;
     transition-duration: 0.2s;
 }
 
+.change-btn {
+    margin-left: 20px;
+}
+
 .change-btn:hover {
     background-color: #7dd3fc;
 }
 
-.add-book-btn:active, .change-btn:active, .delete-btn:active {
+.add-book-btn:active, .change-btn:active, .delete-btn:active, .dialog-btn:active {
     transform: translateY(2px);
 }
 
@@ -149,4 +164,44 @@ th:nth-child(5) {
 
 .trash {
     width: 1.8rem;
+}
+
+/* ----- Dialog ----- */
+
+.add-book-dialog {
+    background-color: #94a3b8;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-form label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal-form label:last-child {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dialog-btn {
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: #64748b;
+    color: #e2e8f0;
+}
+
+.dialog-btn:hover {
+    background-color: #94a3b8;
 }
